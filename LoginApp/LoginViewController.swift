@@ -20,7 +20,12 @@ final class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.welcomeText = "Welcome, \(userNameTextField.text ?? "")!"
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil{
+            view.endEditing(true)
+        }
     }
     
 
